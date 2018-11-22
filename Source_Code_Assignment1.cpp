@@ -33,3 +33,19 @@ string Generator()
 	 return m + R.substr(R.length()-G_length+1);
 
  }
+string Verifier(string transmitted_message , string G )
+{
+	string output = "Message is correct";
+	for(int i=0; i<transmitted_message.length()-(G.length()-1); )
+	 {
+		 for(int j=0; j<G.length(); j++)
+			 transmitted_message[i+j] = (transmitted_message[i+j]==G[j])? '0':'1';
+		 for( ; i<transmitted_message.length() && transmitted_message[i]!='1' ; i++);
+	 }
+	for( char i: transmitted_message.substr(transmitted_message.length()-G.length() ))
+		if(i != '0')
+		{
+			output = "Message is not correct";
+		}
+		return output;
+}
