@@ -49,3 +49,32 @@ string Verifier(string transmitted_message , string G )
 		}
 		return output;
 }
+void alter(string &transmitted_msg, int index)
+{
+	char bit = (transmitted_msg[index-1]== '0') ? '1' : '0';
+	transmitted_msg.replace(index-1, 1,1, bit);
+}
+ void main()
+ {
+	 
+	  string transmitted_msg = Generator();
+	  cout<<"The Transmitted Message is " << transmitted_msg<<endl;
+	  out <<"The Transmitted Message is " <<  transmitted_msg << endl;
+	 int input;
+	 cout<<"if you want to perform alter on the message enter the index of alter .. if not press 0"<<endl;
+	 cin>>input;
+	 if(input == 0)
+	 {
+		cout<<Verifier(transmitted_msg , G)<<endl;
+		out << Verifier(transmitted_msg , G) << endl;
+	 }
+	 else
+	 {
+
+		 int index = input;
+		 alter(transmitted_msg , index);
+		 cout<<Verifier(transmitted_msg , G)<<endl;
+		 out << Verifier(transmitted_msg , G) << endl;
+	 }
+
+ }
